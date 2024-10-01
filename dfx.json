@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "gamegrid_backend": {
+      "main": "src/gamegrid_backend/main.mo",
+      "type": "motoko"
+    },
+    "gamegrid_frontend": {
+      "dependencies": [
+        "gamegrid_backend"
+      ],
+      "source": [
+        "src/gamegrid_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "gamegrid_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
