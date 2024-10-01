@@ -1,31 +1,22 @@
-import { useState } from 'react';
-import { gamegrid_backend } from 'declarations/gamegrid_backend';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Welcome from "./pages/welcome";
+import Quests from "./pages/quests";
+import Profile from "./pages/profile";
+import NoPage from "./pages/no-page";
+import Games from "./pages/games"
 
-function App() {
-  const [greeting, setGreeting] = useState('');
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    gamegrid_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
-
+export default function App() {
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <BrowserRouter>
+      <Routes>
+          <Route index element={<Welcome />} />
+          <Route path="Quests" element={<Quests />} />
+          <Route path="Profile" element={<Profile />} />
+          <Route path="games" element={<Games />} />
+          <Route path="*" element={<NoPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
