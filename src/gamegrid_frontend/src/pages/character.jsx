@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavSwitch } from '../nav-context';
-import CharacterSelect from '../components/character';
+import CharacterSelect from '../components/character/character';
 import Nav from '../components/nav';
 
 function Character() {

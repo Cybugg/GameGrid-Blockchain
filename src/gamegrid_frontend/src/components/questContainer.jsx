@@ -21,7 +21,7 @@ function QuestContainer() {
         <div className=''>
           <span className='font-bold '>Mission 1:</span> 
         </div>
-        <div className='w-full bg-slate-900 flex  items-center flex-col justify-center xl:flex-row gap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 flex  items-center flex-col justify-center xl:flex-row gap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className='bg-green-500 w-full h-96' style={{   background:"url(/static/images/mission1.png)",
       backgroundRepeat:"no-repeat",
@@ -62,7 +62,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 2:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -84,7 +84,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 3:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -106,7 +106,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 4:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -128,7 +128,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 5:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -151,7 +151,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 6:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -175,7 +175,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 7:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -198,7 +198,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 8:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -220,7 +220,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 9:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -242,7 +242,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 10:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -264,7 +264,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 11:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -286,7 +286,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 12:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -308,7 +308,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 13:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -330,7 +330,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 14:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -352,7 +352,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 15:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />
@@ -374,7 +374,7 @@ function QuestContainer() {
         <div>
         <span className='font-bold '>Mission 16:</span> 
         </div>
-        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500'>
+        <div className='w-full bg-slate-900 bg-opacity-50 flex  items-center flex-col justify-centergap-3 border border-gray-500 rounded'>
           {/* image */}
           <div className=' w-full h-72 flex flex-col items-center justify-center text-orange-500' >
           <GiPadlock className='text-4xl' />

@@ -1,5 +1,6 @@
 import Connect from "./connect";
 import { useAuth } from "../ic/use-auth-client";
+import { Link } from "react-router-dom";
 
   const Hero = ({setActivateSignIn,activateSignIn}) =>{
     const {logout,isAuthenticated}=useAuth();
@@ -9,7 +10,7 @@ import { useAuth } from "../ic/use-auth-client";
        { activateSignIn &&  !isAuthenticated && 
        <Connect setActivateSignIn={setActivateSignIn} />}
         <div className="bg-black fixed z-[-10] w-full h-screen top-0">
-           <video playsInline muted loop preload='none' poster='/static/images/hero.png' autoPlay key={"/static/Images/heroThumbnail.jpg"} className='w-full h-screen object-cover object-center top-0 md:blur-sm bg-black md:opacity-70' >
+           <video playsInline muted loop preload='none' poster='/static/images/hero.png' autoPlay key={"/static/Images/heroThumbnail.jpg"} className='w-full h-screen object-cover object-center top-0 md:blur-sm bg-slate-950 md:opacity-50' >
                 <source type='video/mp4' src='/static/videos/hero.mp4'   />
             </video>
         </div>
@@ -31,7 +32,7 @@ import { useAuth } from "../ic/use-auth-client";
             </div>
             {/* Buttons */}
             <div className="mt-5 flex w-full gap-5 justify-center items-center text-white md:text-3xl">
-              <button className=" px-5 md:px-8 bg-[rgb(25,25,25)] border border-[rgb(158,158,158)]">Explore </button>
+              <Link to={"/quests"} className=" px-5 md:px-8 bg-[rgb(25,25,25)] border border-[rgb(158,158,158)]">Explore </Link>
           { !isAuthenticated&&<button onClick={()=>setActivateSignIn(true)} className="px-5 md:px-8 bg-orange-600 ">Sign in</button>}
             </div>
       </section>
