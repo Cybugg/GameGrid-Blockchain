@@ -2,24 +2,25 @@ import React, { useEffect, useRef, useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
 function Step1() {
-    const textRef = useRef();
+    const textRef = useRef("");
     const [activateButton,setActivateButton]= useState(false);
 
     useEffect(()=>{
-            if(textRef.current.innerHTML.length===414){
-                setActivateButton(true);
-            }
-    },[textRef])
+          
+      setTimeout(() => {
+      setActivateButton(true);}, 20000);
+      
+    },[])
   return (
     <>
      {/* Section 1 */}
    <div className='flex flex-col items-end w-full'>
    {/* Welcome text */}
 <div className='font-bold w-full'>
-<h1>
-Welcome, Future Heroes!  
+<h1 className='text-center'>
+Welcome, Future Hero!  
 </h1>
-<p className='text-lg w-full' id='welcome-text'>
+<p className='text-lg w-full' id='welcome-text' ref={textRef}>
 <TypeAnimation
       sequence={[
         "Welcome to the realm where legends are born! As you embark on your journey to become the ultimate hero, let your imagination run wild. This is your chance to craft a character that stands out—choose unique traits, bold appearances, and powerful abilities. Remember, the world needs champions like you to rise and shine. Get creative, and let's see who will emerge as the number one hero! Your adventure begins now!",1000
@@ -29,7 +30,7 @@ Welcome, Future Heroes!
       style={{ fontSize: '1em', display: 'inline-block' }}
       repeat={0}
       omitDeletionAnimation
-      ref={textRef}
+      
     />
 </p>
 

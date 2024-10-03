@@ -1,8 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Step3() {
+  const [hovered, setHovered]= useState("");
+
+  const RACE_DESC = {
+    human:"Human are adaptable and versatile, excelling in various roles and thriving in diverse environments. ",
+    elf:"Elves are agile and magical beings known for their deep connection to nature and long lifespans, living for centuries.",
+    dwarf:"Dwarves are sturdy and resilient beings, known for their craftsmanship and fierce loyalty. With a strong connection to the earth, they excel in combat and are often skilled artisans and miners.",
+    halfling:"Halflings are small, nimble beings known for their cheerful disposition and cleverness. They excel in stealth and agility, making them adept rogues and scouts. ",
+    tiefling:"Tieflings are enigmatic beings with infernal heritage, characterized by their striking appearances and innate magical abilities. "
+  }
+
+  const handleHover = (e)=>{
+    setHovered(e.target.id)
+  };
   return (
-    <div>Step3</div>
+    <div className='flex h-full flex-col items-end w-full'>
+    {/* Header */}
+  <div className='font-bold w-full h-full'>
+  <h1 className='text-center py-5'>
+  Select Race
+  </h1>
+  {/* Race Items */}
+  <div  className='flex flex-col  min-h-72 bg-black items-center justify-center w-full gap-2 rounded bg-opacity-20'>
+    {/* Human */}
+  <button onMouseEnter={handleHover} id="human" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+    Human
+  </button>
+  {/* Elf */}
+  <button onMouseEnter={handleHover} id="elf" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+    Elf
+  </button>
+  {/* Dwarf */}
+  <button onMouseEnter={handleHover} id="dwarf" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+    Dwarf
+</button>
+{/* Halfling */}
+<button onMouseEnter={handleHover} id="halfling" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+  Halfling
+</button>
+{/* Tiefling */}
+<button onMouseEnter={handleHover} id="tiefling" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+    Tiefling
+</button>
+
+  </div>
+  <div className='text-center py-2 text-sm min-h-32 transition-all ease-in-out'>
+ {RACE_DESC[hovered]}
+  </div>
+  </div> 
+  <button className=' border-2 p-1 text-lg text-gray-200 border-gray-200 hover:text-black hover:bg-gray-200 transition-all ease-in rounded px-2'>
+    Back
+</button>
+  </div> 
   )
 }
 
