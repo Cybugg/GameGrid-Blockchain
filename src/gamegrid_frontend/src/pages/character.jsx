@@ -13,7 +13,7 @@ function Character() {
     }
     ,[]);
   return (
-    <main className='top-0 min-h-screen w-full fixed flex flex-col lg:flex-row'>
+    <main className='top-0 w-full h-screen fixed flex flex-col lg:flex-row'>
     <Nav setActivateSignIn={setActivateSignIn} />
      <CharacterSelect />
  </main>

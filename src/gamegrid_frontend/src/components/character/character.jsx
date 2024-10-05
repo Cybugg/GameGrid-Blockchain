@@ -8,29 +8,38 @@ import Step3 from './step3';
 import Step5 from './step5';
 import Step4 from './step4';
 import Step6 from './step6';
-import Step7 from './step7';
-import Step8 from './step8';
+
 
 function CharacterSelect() {
   const [step,setStep]=useState(0);
-  const creation_steps =[<Step1 />,<Step2 />,<Step3 />,<Step4 />,<Step5 />,<Step6 />,<Step7 />, <Step8 />];
+  const [user,setUser]=useState({name:"",gender:"",class:"",background:"",race:"",nft_image:""});
+
+
+  const handleNext = () =>{
+    step < 6 &&setStep(prev => prev + 1);
+  }
   
+  const handleBack = () =>{
+    step > 0 &&setStep(prev => prev - 1);
+  }
+
+  const creation_steps =[<Step1 handleNext={handleNext} handleback={handleBack} setUser={setUser} />,<Step2 handleNext={handleNext} handleBack={handleBack} setUser={setUser} />,<Step3 handleNext={handleNext} handleBack={handleBack} setUser={setUser} />,<Step4 handleNext={handleNext} handleBack={handleBack} setUser={setUser} />,<Step5 handleNext={handleNext} handleBack={handleBack} setUser={setUser} />,<Step6 handleNext={handleNext} handleBack={handleBack} setUser={setUser} />];
   return (
-    <section className='min-h-screen w-full text-white ' style={{
+    <section className=' w-full text-white h-full overflow-y-scroll' style={{
         background:"url(/static/scenes/character.png)",
         backgroundRepeat:"no-repeat",
         backgroundSize:"cover",
         backgroundPosition:"center"
-      }}> <div className='w-full px-5 flex items-center text-3xl py-3 bg-opacity-80 backdrop-blur-lg bg-slate-950 gap-5 sticky'>
+      }}> <div className='w-full px-5 flex items-center text-3xl py-3 bg-opacity-80 backdrop-blur-lg bg-slate-950 gap-5 fixed z-50'>
        <Link to={"/quests"} className='bg-slate-800 p-2 rounded-full text-xl'><IoIosArrowBack /></Link>  Mission 1: Create Your Hero
         </div>
-      <div className='w-full h-screen overflow-y-scroll bg-opacity-80 bg-slate-900 backdrop-blur-sm pb-56 flex items-center justify-center'>
+      <div className='w-full min-h-screen  overflow-y-scroll bg-opacity-80 bg-slate-900 backdrop-blur-sm pb-56 flex items-center justify-center'>
      {/* Conatainer */}
-     <div className='w-full min-h-screen flex flex-col xl:flex-row items-center xl:items-start justify-center gap-5 xl:gap-24 container mx-auto p-5 xl:px-24 xl:mt-96 '>
+     <div className='w-full h-full flex flex-col xl:flex-row items-center xl:items-start justify-center gap-5 xl:gap-24 container mx-auto p-5 xl:px-24 mt-24'>
 
 {/* Edit pallete */}
- <div className='bg-slate-900 w-full rounded border border-gray-500 bg-opacity-50 backdrop-blur-sm p-5 pb-12 min-h-48  xl:mt-0'>
-   {creation_steps[5]}
+ <div className='bg-slate-900 w-full rounded border border-gray-500 bg-opacity-50 backdrop-blur-sm p-5 pb-12 '>
+   {creation_steps[step]}
  </div>
   {/* Charcater Sheet */}
   <div className='hidden xl:block gap-5 items-start w-full xl:w-72 justify-center'>

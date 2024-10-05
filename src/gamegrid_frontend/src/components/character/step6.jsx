@@ -42,6 +42,7 @@ function Step6() {
 You have artfully summoned a character destined to weave their own legend within the tapestry of your journey. Your new companion is poised to explore uncharted realms, forge alliances, and uncover hidden treasures. 
 <br />
 May your choices be wise and your adventures profound. Embrace this new chapter, for a grand odyssey awaits you!
+
   </div>
  </div>
  

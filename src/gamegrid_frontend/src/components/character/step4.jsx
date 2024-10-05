@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Step4() {
+function Step4({handleNext,handleBack}) {
   const [hovered, setHovered]= useState("");
 
   const RACE_DESC = {
@@ -15,33 +15,37 @@ function Step4() {
     setHovered(e.target.id)
   };
 
+  const handleSelection = ()=>{
+    handleNext()
+  };
+
   return (
     <div className='flex h-full flex-col items-end w-full'>
     {/* Header */}
   <div className='font-bold w-full h-full'>
   <h1 className='text-center py-5'>
-  Select Race
+  Select Class
   </h1>
   {/* Class Items */}
   <div  className='flex flex-col  min-h-72 bg-black items-center justify-center w-full gap-2 rounded bg-opacity-20'>
     {/* warrior */}
-  <button onMouseEnter={handleHover} id="warrior" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+  <button onClick={handleSelection} onMouseEnter={handleHover} id="warrior" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
     Warrior
   </button>
   {/* wizard */}
-  <button onMouseEnter={handleHover} id="wizard" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+  <button onClick={handleSelection} onMouseEnter={handleHover} id="wizard" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
     Wizard
   </button>
   {/* Cleric */}
-  <button onMouseEnter={handleHover} id="cleric" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+  <button onClick={handleSelection} onMouseEnter={handleHover} id="cleric" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
     Cleric
 </button>
 {/* Ranger */}
-<button onMouseEnter={handleHover} id="ranger" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+<button onClick={handleSelection} onMouseEnter={handleHover} id="ranger" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
   Ranger
 </button>
 {/* Rogue */}
-<button onMouseEnter={handleHover} id="rogue" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
+<button onClick={handleSelection} onMouseEnter={handleHover} id="rogue" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded'>
     Rogue
 </button>
 
@@ -50,7 +54,7 @@ function Step4() {
  {RACE_DESC[hovered]}
   </div>
   </div> 
-  <button className=' border-2 p-1 text-lg text-gray-200 border-gray-200 hover:text-black hover:bg-gray-200 transition-all ease-in rounded px-2'>
+  <button className=' border-2 p-1 text-lg text-gray-200 border-gray-200 hover:text-black hover:bg-gray-200 transition-all ease-in rounded px-2' onClick={handleBack}>
     Back
 </button>
   </div> 
