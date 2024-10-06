@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Step3({handleNext, handleBack}) {
+function Step3({handleNext, handleBack, setUser}) {
   const [hovered, setHovered]= useState("");
 
   const RACE_DESC = {
@@ -15,9 +15,28 @@ function Step3({handleNext, handleBack}) {
     setHovered(e.target.id)
   };
 
-  const handleSelection = ()=>{
-    handleNext()
+
+  // Race input buttons
+  const toHuman = ()=>{
+      setUser(pre => ({...pre,race:"human"}));
+        handleNext()
   };
+  const toElf = ()=>{
+    setUser(pre => ({...pre,race:"elf"}));
+      handleNext()
+};
+const toDwarve = ()=>{
+  setUser(pre => ({...pre,race:"dwarf"}));
+    handleNext()
+};
+const toHalfing = ()=>{
+  setUser(pre => ({...pre,race:"halfling"}));
+    handleNext()
+};
+const toTiefling = ()=>{
+  setUser(pre => ({...pre,race:"tiefling"}));
+    handleNext()
+};
 
   return (
     <div className='flex h-full flex-col items-end w-full'>
@@ -29,23 +48,23 @@ function Step3({handleNext, handleBack}) {
   {/* Race Items */}
   <div  className='flex flex-col  min-h-72 bg-black items-center justify-center w-full gap-2 rounded bg-opacity-20'>
     {/* Human */}
-  <button onMouseEnter={handleHover} id="human" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={handleSelection}>
+  <button onMouseEnter={handleHover} id="human" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={toHuman}>
     Human
   </button>
   {/* Elf */}
-  <button onMouseEnter={handleHover} id="elf" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={handleSelection}>
+  <button onMouseEnter={handleHover} id="elf" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={toElf}>
     Elf
   </button>
   {/* Dwarf */}
-  <button onMouseEnter={handleHover} id="dwarf" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={handleSelection}>
+  <button onMouseEnter={handleHover} id="dwarf" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={toDwarve}>
     Dwarf
 </button>
 {/* Halfling */}
-<button onMouseEnter={handleHover} id="halfling" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={handleSelection}>
+<button onMouseEnter={handleHover} id="halfling" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={toHalfing}>
   Halfling
 </button>
 {/* Tiefling */}
-<button onMouseEnter={handleHover} id="tiefling" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={handleSelection}>
+<button onMouseEnter={handleHover} id="tiefling" className=' border-2 p-1 text-xl text-gray-200 border-gray-200 min-w-56 hover:text-black hover:bg-gray-200 transition-all ease-in rounded' onClick={toTiefling}>
     Tiefling
 </button>
 
