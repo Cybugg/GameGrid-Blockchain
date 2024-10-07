@@ -45,3 +45,8 @@ button[type="submit"] {
 #greeting:empty {
   display: none;
 }
+
+.norepeat{
+  background-size: cover;
+  background-repeat: no-repeat;
+}

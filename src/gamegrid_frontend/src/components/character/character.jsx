@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoIosArrowBack } from "react-icons/io";
 import { MdQuestionMark } from 'react-icons/md';
 import { Link } from 'react-router-dom';
@@ -8,11 +8,17 @@ import Step3 from './step3';
 import Step5 from './step5';
 import Step4 from './step4';
 import Step6 from './step6';
+import ReactAudioPlayer from 'react-audio-player';
+import { MdMusicNote } from "react-icons/md";
+import { MdMusicOff } from "react-icons/md";
 
 
 function CharacterSelect() {
   const [step,setStep]=useState(0);
   const [user,setUser]=useState({name:"",gender:"",class_:"",background:"",race:"",nft_image:""});
+  const [playAudio, setPlayAudio] = useState(false);
+
+
 
  const onSummon = ()=>{
 
@@ -206,42 +212,51 @@ function CharacterSelect() {
         backgroundRepeat:"no-repeat",
         backgroundSize:"cover",
         backgroundPosition:"center"
-      }}> <div className='w-full px-5 flex items-center text-3xl py-3 bg-opacity-80 backdrop-blur-lg bg-slate-950 gap-5 fixed z-50'>
+      }}> 
+      
+
+      <div className='w-full px-5 flex items-center text-3xl py-3 bg-opacity-80 backdrop-blur-lg bg-slate-950 gap-5 fixed z-50'>
        <Link to={"/quests"} className='bg-slate-800 p-2 rounded-full text-xl'><IoIosArrowBack /></Link>  Mission 1: Create Your Hero
         </div>
       <div className='w-full min-h-screen  overflow-y-scroll bg-opacity-80 bg-slate-900 backdrop-blur-sm pb-56 flex items-center justify-center'>
      {/* Conatainer */}
      <div className='w-full h-full flex flex-col xl:flex-row items-center xl:items-start justify-center gap-5 xl:gap-24 container mx-auto p-5 xl:px-24 mt-24'>
 
+ {/* Charcater Sheet */}
+ <div className=' gap-5 items-start w-full xl:w-72 justify-center'>
+      {/* coins */}
+      <div className='text-orange-500 text-sm text-end font-bold '>
+          <span className='text-xl'>0</span>gg
+      </div>
+      {/* level grade*/}
+           <div className='w-full flex gap-3 items-center'>
+        <div>
+           <span className='text-sm'>Lv</span>1
+        </div>
+        <div className='flex items-center w-full'>
+        <div className='bg-gray-800 p-1 h-8 w-4 rounded border border-gray-500'>
+
+        </div>
+        {/* Progress */}
+        <div className='bg-slate-800 w-full p-1 border border-gray-500 rounded-r-full'>
+          <div className='w-1 p-1 bg-orange-600'>
+          </div>
+        </div>
+      </div>
+      </div>
+   
+      {/* Summary */}
+      <div className='flex flex-col font-bold text-lg'>
+      <div>
+        Name: {user.name? user.name :"?"}
+      </div>
+      </div>
+ </div>
 {/* Edit pallete */}
  <div className='bg-slate-900 w-full rounded border border-gray-500 bg-opacity-50 backdrop-blur-sm p-5 pb-12 '>
    {creation_steps[step]}
  </div>
-  {/* Charcater Sheet */}
-  <div className='hidden xl:block gap-5 items-start w-full xl:w-72 justify-center'>
-      {/* Potrait Image */}
-      <div className='w-full sm:w-72 h-72 bg-slate-900 border border-gray-500 bg-opacity-60 backdrop-blur-lg rounded flex items-center justify-center text-8xl'>
-   <MdQuestionMark />
-      </div>
-      {/* Summary */}
-      <div className='flex flex-col mt-5 md:mt-0 xl:mt-5 font-bold md:w-96 xl:w-72  text-lg  bg-slate-900 border border-gray-500 bg-opacity-60 backdrop-blur-lg  p-2 rounded '>
-      <div>
-        Name: {"?"}
-      </div>
-      <div>
-        Gender: {"?"}
-      </div>
-      <div>
-        Race:  {"?"}
-      </div>
-      <div>
-        Class:  {"?"}
-      </div>
-      <div className='break-words'>
-        Background:  {"?"}
-      </div>
-      </div>
- </div>
+ 
      </div>
         </div> 
    </section>
