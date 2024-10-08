@@ -1,0 +1,38 @@
+.drop-zone{
+    height: calc(var(--size) * 1.5);
+    position: relative;
+}
+
+.drop-zone div{
+    width: var(--size);
+    height:var(--size);
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+}
+.drop-zone .p1 {
+    background-color: var(--p1);             
+}
+.drop-zone .p2 {background-color: var(--p2);
+}
+.drop-zone .active {
+    transition: all ease-in-out 100ms;
+    opacity: 0.3;
+    border:solid rgb(182, 182, 182) 1px;
+}
+.drop-zone .active.column-0 {margin-left: 0px;}
+.drop-zone .active.column-1 {margin-left: 75px;}
+.drop-zone .active.column-2 {margin-left: 150px;}
+.drop-zone .active.column-3 {margin-left: 225px;}
+.drop-zone .active.column-4 {margin-left: 300px;}
+.drop-zone .active.column-5 {margin-left: 375px;}
+.drop-zone .active.column-6 {margin-left: 450px;}
+
+.drop-zone .active.row-0 {transform : translateY(115px)}
+.drop-zone .active.row-1 {transform : translateY(190px)}
+.drop-zone .active.row-2 {transform : translateY(265px)}
+.drop-zone .active.row-3 {transform : translateY(340px)}
+.drop-zone .active.row-4 {transform : translateY(415px)}
+.drop-zone .active.row-5 {transform : translateY(490px)}
+
+.drop-zone .active.column--.row--{transition: none;}

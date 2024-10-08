@@ -16,7 +16,7 @@ function Quests() {
   return (
     <main className='top-0 h-screen w-full fixed flex flex-col lg:flex-row'>
      <Nav setActivateSignIn={setActivateSignIn} />
-      <QuestContainer />
+      <QuestContainer setActivateSignIn={setActivateSignIn} activateSignIn={activateSignIn} />
   </main>)
 }
 

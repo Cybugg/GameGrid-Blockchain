@@ -16,7 +16,7 @@ function Character() {
   return (
     <main className='top-0 w-full h-screen fixed flex flex-col lg:flex-row'>
     <Nav setActivateSignIn={setActivateSignIn} />
-     <GamingFrame />
+     <GamingFrame setActivateSignIn={setActivateSignIn} activateSignIn={activateSignIn} />
  </main>
   )
 }

@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { MdQuestionMark } from 'react-icons/md';
+import { useAuth } from '../../ic/use-auth-client';
+import { toOptional } from '../convert';
 
 
 function Step6({user,setUser}) {
   const [count,setCount]=useState(0);
   const [nft,setNft]=useState(false);
   const videoRef = useRef(null);
-
+  const {login,logout,isAuthenticated,BackendActor,principal,passKey}=useAuth();
 
   
   const setimage =  async ()=>{
@@ -20,10 +22,10 @@ function Step6({user,setUser}) {
       res(reader.result);
     }})
   }).then(dataUrl => {
-    console.log('RESULT:', dataUrl);
+  
    setUser(prev => ({...prev, nft_image:dataUrl}));
    setNft(true);
-})
+}).then(ele =>  BackendActor.createUser(toOptional({name:user.name,gender:user.gender,class_:user.class_,background:user.background,race:user.race,nft_image:user.nft_image,passkey:passKey,joined:Date.now(),last_loggedin:Date.now(),gg:750,lv_point:750}))).then(ele => setNft(true)).catch(err => console.log(err))
   }
 
   

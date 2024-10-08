@@ -51,6 +51,8 @@ export const useAuthClient = (options = defaultOptions) => {
   const [identity, setIdentity] = useState(null);
   const [principal, setPrincipal] = useState(null);
   const [BackendActor, setBackendActor] = useState(null);
+  const [passKey, setPassKey] = useState(0);
+  const [user, setUser] = useState({name:"",passkey:0,gg:"",lv_point:"",last_loggedin:"",joined:"",class_:"",race:"",gender:"",background:""});
 
   useEffect(() => {
     // Initialize AuthClient
@@ -58,6 +60,14 @@ export const useAuthClient = (options = defaultOptions) => {
       updateClient(client);
     });
   }, []);
+
+  useEffect(
+    ()=>{
+
+     let key = localStorage.getItem("passkey");
+     key &&setPassKey(key);
+    },[]
+  )
 
   const login = () => {
     authClient.login({
@@ -102,6 +112,10 @@ export const useAuthClient = (options = defaultOptions) => {
     identity,
     principal,
     BackendActor,
+    passKey,
+    setPassKey,
+    user,
+    setUser
   };
 };
 

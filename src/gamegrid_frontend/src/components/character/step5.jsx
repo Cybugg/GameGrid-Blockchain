@@ -9,7 +9,7 @@ function Step5({handleNext,handleBack,setUser,user,onSummon}) {
   };
 
   const summon = ()=>{
-    handleNext();
+  user.name &&  handleNext();
     onSummon();
   };
 

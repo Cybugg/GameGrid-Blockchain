@@ -1,15 +1,24 @@
 import React from 'react'
 import { GiPadlock } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../ic/use-auth-client';
+import Connect from './connect';
+import Passkey from './passkey';
 
-function GamingFrame() {
+function GamingFrame({setActivateSignIn,activateSignIn}) {
+  const {logout,isAuthenticated,passKey}=useAuth();
   return (
-    <section className='min-h-screen w-full text-white ' style={{
+    <section className='min-h-screen w-full relative text-white ' style={{
       background:"url(/static/scenes/quests.png)",
       backgroundRepeat:"no-repeat",
       backgroundSize:"cover",
       backgroundPosition:"top"
-    }}> <div className='w-full px-5 text-3xl py-3 bg-opacity-80 backdrop-blur-lg bg-slate-950 sticky'>
+    }}> 
+    
+    { activateSignIn &&  !isAuthenticated && 
+       <Connect setActivateSignIn={setActivateSignIn} />}
+      {!passKey  && isAuthenticated && <Passkey setActivateSignIn={setActivateSignIn} />}
+    <div className='w-full px-5 text-3xl py-3 bg-opacity-80 backdrop-blur-lg bg-slate-950 sticky'>
        Games
       </div>
     <div className='w-full h-screen overflow-y-scroll bg-opacity-80 bg-slate-900 backdrop-blur-sm pb-56 '>
@@ -44,7 +53,7 @@ function GamingFrame() {
           <span className='font-bold bg-slate-800 px-5 border border-gray-500'>Reward: unlimited</span> 
         </div>
         {/* cta */}
-        <Link to={"/games"} className='px-5 text-md hover:bg-gray-300 bg-white border border-gray-500 text-black my-2'>
+        <Link to={isAuthenticated?"/games/grid-rivals/play":""} target='__blank' className='px-5 text-md hover:bg-gray-300 bg-white border border-gray-500 text-black my-5' onClick={()=>{!isAuthenticated && setActivateSignIn(true)}}>
           Play Demo
         </Link>
       </div> 
@@ -77,7 +86,7 @@ function GamingFrame() {
           <span className='font-bold bg-slate-800 px-5 border border-gray-500'>Reward: Unlimited</span> 
         </div>
         {/* cta */}
-        <Link  className='px-5 text-md text-white border border-gray-500  my-2'>
+        <Link  className='px-5 text-md text-white my-5'>
           Coming Soon...
         </Link>
       </div> 

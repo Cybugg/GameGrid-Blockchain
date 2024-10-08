@@ -1,8 +1,5 @@
-import Array "mo:base/Array";
 import Nat "mo:base/Nat";
-import Principal "mo:base/Principal";
 import Text "mo:base/Text";
-import List "mo:base/List";
 import Option "mo:base/Option";
 import Trie "mo:base/Trie";
 import Nat32 "mo:base/Nat32";
@@ -21,15 +18,16 @@ actor{
   // The type of a user.
   public type user = {
     name :?Text;
-    passkey:Nat32;
-    gg: ?Text;
-    lv_point:?Text;
-    last_loggedin:?Text;
-    joined:?Text;
-    class_:?Text;
-    race:?Text;
-    gender:?Text;
-    background:?Text;
+    passkey:Nat;
+    gg: Nat;
+    lv_point:Nat;
+    last_loggedin:Text;
+    joined:Text;
+    class_:Text;
+    race:Text;
+    gender:Text;
+    background:Text;
+    nft_image:Text;
   };
 
   /**
@@ -44,9 +42,19 @@ actor{
    * High-Level API
    */
 
-  // Create a user.
-  public func create(user : user) : async userId {
-    let userId = user.passkey;
+  // Read all users data
+  public query func ReadAllUsers() : async [user] {
+    let array = Trie.toArray<userId,user,user>(
+  users,
+  func (k, v) = v
+);
+    array;
+  };
+
+
+ // Create a user.
+  public func createUser(user : user) : async userId {
+    let userId = Nat32.fromNat(user.passkey);
     users := Trie.replace(
       users,
       key(userId),
@@ -57,13 +65,15 @@ actor{
   };
 
   // Read a user.
-  public query func read(userId : userId) : async ?user {
+  public query func readUser(user_id : Nat) : async ?user {
+     let userId = Nat32.fromNat(user_id);
     let result = Trie.find(users, key(userId), Nat32.equal);
     return result;
   };
 
   // Update a user.
-  public func update(userId : userId, user : user) : async Bool {
+  public func updateUser(user_Id : Nat, user : user) : async Bool {
+    let userId = Nat32.fromNat(user_Id);
     let result = Trie.find(users, key(userId), Nat32.equal);
     let exists = Option.isSome(result);
     if (exists) {
@@ -78,7 +88,8 @@ actor{
   };
 
   // Delete a user.
-  public func delete(userId : userId) : async Bool {
+  public func deleteUser(user_id : Nat) : async Bool {
+    let userId = Nat32.fromNat(user_id);
     let result = Trie.find(users, key(userId), Nat32.equal);
     let exists = Option.isSome(result);
     if (exists) {
