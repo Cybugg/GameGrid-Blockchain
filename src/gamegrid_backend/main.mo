@@ -15,12 +15,38 @@ actor{
   // The type of a user identifier.
   public type userId = Nat32;
 
-  // The type of a user.
+// Level of character
+  type characterLevel = Nat;
+
+
+  //  Games in store
+
+  stable var games:[Text] = ["GridRivals","World Conqueror","Tic Tac All Wars"];
+
+
+  // Get Games List
+
+  public query func getGames(): async [Text]{
+        games;
+  };
+  
+
+  // Get Total Number of users online
+public query func onlineUsers(): async Text{
+        "1 user";
+  };
+
+//  Lists of collectables
+public query func getCollectiblesList(): async [Text]{
+  [""];
+};
+
+  // The type of a user.~
   public type user = {
     name :?Text;
     passkey:Nat;
     gg: Nat;
-    lv_point:Nat;
+    lv_point:characterLevel;
     last_loggedin:Text;
     joined:Text;
     class_:Text;

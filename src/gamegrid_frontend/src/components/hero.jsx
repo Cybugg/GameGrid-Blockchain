@@ -22,7 +22,7 @@ import Passkey from "./passkey";
             <div className="mt-12 md:mt-24 text-white bg-gray-900 bg-opacity-70 py-8"> 
               <div className="flex h-[80%] w-full flex-col items-center justify-center container mx-auto px-5">
                 {/* Heading */}
-                  <div className="text-4xl md:text-5xl font-semibold">
+                  <div className="text-3xl md:text-5xl font-semibold">
                 Gamegrid Blockchain
                </div>
                {/* Paragraphs */}
@@ -35,8 +35,8 @@ import Passkey from "./passkey";
             </div>
             {/* Buttons */}
             <div className="mt-5 flex w-full gap-5 justify-center items-center text-white md:text-3xl">
-              <Link to={"/quests"} className=" px-5 md:px-8 bg-[rgb(25,25,25)] border border-[rgb(158,158,158)] text-5xl lg:text-3xl">Explore </Link>
-          { !isAuthenticated&&<button onClick={()=>setActivateSignIn(true)} className="px-5 md:px-8 bg-orange-600  text-5xl lg:text-3xl">Sign in</button>}
+              <Link to={"/quests"} className=" px-5 md:px-8 bg-[rgb(25,25,25)] border border-[rgb(158,158,158)] text-2xl lg:text-3xl">Explore </Link>
+          { !isAuthenticated&&<button onClick={()=>setActivateSignIn(true)} className="px-5 md:px-8 bg-orange-600  text-2xl lg:text-3xl">Sign in</button>}
             </div>
       </section>
     );
