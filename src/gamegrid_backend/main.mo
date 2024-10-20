@@ -4,7 +4,11 @@ import Option "mo:base/Option";
 import Trie "mo:base/Trie";
 import Nat32 "mo:base/Nat32";
 import Types "./types";
-import Utils "./utils"
+import Utils "./utils";
+import Array "mo:base/Array";
+import Principal "mo:base/Principal";
+import Buffer "mo:base/Buffer";
+
 
 
 actor{
@@ -41,16 +45,80 @@ public query func onlineUsers(): async Text{
 public query func getCollectiblesList(): async [Text]{
   [""];
 };
+// get principal
+public shared (msg) func whoami():async Principal{
+  msg.caller;
+};
+
+
  /**
    * Application State using Array
    */
+  // Stores the platform players details 
+  private stable var players:[Types.User] = [];
+
+  // Get the total number of players registered on the platform
+  public query func totalRegisteredPlayers(): async Nat {
+      let population = Array.size(players);
+     population;
+  };
+
+  //  name :Text;
+  //   passkey:Nat;
+  //   gg: Nat;
+  //   lv_point:characterLevel;
+  //   last_loggedin:Text;
+  //   joined:Text;
+  //   class_:Text;
+  //   race:Text;
+  //   gender:Text;
+  //   background:Text;
+  //   nft_image:Text;
+  //   id:?Principal
+
+  public shared (msg) func registerPlayer(passkey:Nat,name:Text,gg:Text,lv_point:Text,last_loggedin:Text,joined:Text,class_:Text,race:Text,gender:Text,background:Text,nft_image:Text): async Text{
+   
+    let principalText = Principal.toText(msg.caller);
+    let principal_ = Principal.fromText(principalText);
+    let isAnon = Principal.isAnonymous(principal_);
+    let playerProfile:Types.User = {
+        id=principal_;
+        passkey=passkey;
+        gg=gg;
+        name = name;
+        lv_point = lv_point;
+        last_loggedin = last_loggedin;
+        joined = joined;
+        class_ = class_;
+        race = race;
+        gender=gender;
+        background=background;
+        nft_image=nft_image;
+      };
+    
+    if(isAnon){
+      return "not authenticated";
+    }else{
+    let playerBuff = Buffer.fromArray<Types.User>(players);
+        playerBuff.add(playerProfile);
+        players := Buffer.toArray(playerBuff);
+      return "User has been registered"
+    }
+  };
+
+  // Get all the  players profile
+  public query func getAllPlayers():async [Types.User]{
+    players;
+  };
+
+
 
 
 
 
 
   /**
-   * Application State using Trie
+   * Application State using Trie [Experimental]
    */
 
  

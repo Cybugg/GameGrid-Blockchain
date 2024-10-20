@@ -1,3 +1,4 @@
+import Principal "mo:base/Principal";
 module {
   //Type Collectibles
   public type Collectibles = {
@@ -23,10 +24,10 @@ module {
 
   //Type User
   public type User = {
-    name :?Text;
+    name :Text;
     passkey:Nat;
-    gg: Nat;
-    lv_point:characterLevel;
+    gg: Text;
+    lv_point:Text;
     last_loggedin:Text;
     joined:Text;
     class_:Text;
@@ -34,6 +35,8 @@ module {
     gender:Text;
     background:Text;
     nft_image:Text;
+    id:Principal
+
   };
 
   //Type Games
