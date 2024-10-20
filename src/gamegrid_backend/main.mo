@@ -3,6 +3,8 @@ import Text "mo:base/Text";
 import Option "mo:base/Option";
 import Trie "mo:base/Trie";
 import Nat32 "mo:base/Nat32";
+import Types "./types";
+import Utils "./utils"
 
 
 actor{
@@ -20,13 +22,12 @@ actor{
 
 
   //  Games in store
-
-  stable var games:[Text] = ["GridRivals","World Conqueror","Tic Tac All Wars"];
+  stable var games:[Types.Game] = [];
 
 
   // Get Games List
 
-  public query func getGames(): async [Text]{
+  public query func getGames(): async [Types.Game]{
         games;
   };
   
@@ -40,37 +41,29 @@ public query func onlineUsers(): async Text{
 public query func getCollectiblesList(): async [Text]{
   [""];
 };
+ /**
+   * Application State using Array
+   */
 
-  // The type of a user.~
-  public type user = {
-    name :?Text;
-    passkey:Nat;
-    gg: Nat;
-    lv_point:characterLevel;
-    last_loggedin:Text;
-    joined:Text;
-    class_:Text;
-    race:Text;
-    gender:Text;
-    background:Text;
-    nft_image:Text;
-  };
+
+
+
 
   /**
-   * Application State
+   * Application State using Trie
    */
 
  
   // The user data store.
-  private stable var users : Trie.Trie<userId, user> = Trie.empty();
+  private stable var users : Trie.Trie<userId, Types.User> = Trie.empty();
 
   /**
    * High-Level API
    */
 
   // Read all users data
-  public query func ReadAllUsers() : async [user] {
-    let array = Trie.toArray<userId,user,user>(
+  public query func ReadAllUsers() : async [Types.User] {
+    let array = Trie.toArray<userId,Types.User,Types.User>(
   users,
   func (k, v) = v
 );
@@ -79,7 +72,7 @@ public query func getCollectiblesList(): async [Text]{
 
 
  // Create a user.
-  public func createUser(user : user) : async userId {
+  public func createUser(user : Types.User) : async userId {
     let userId = Nat32.fromNat(user.passkey);
     users := Trie.replace(
       users,
@@ -91,14 +84,14 @@ public query func getCollectiblesList(): async [Text]{
   };
 
   // Read a user.
-  public query func readUser(user_id : Nat) : async ?user {
+  public query func readUser(user_id : Nat) : async ?Types.User {
      let userId = Nat32.fromNat(user_id);
     let result = Trie.find(users, key(userId), Nat32.equal);
     return result;
   };
 
   // Update a user.
-  public func updateUser(user_Id : Nat, user : user) : async Bool {
+  public func updateUser(user_Id : Nat, user : Types.User) : async Bool {
     let userId = Nat32.fromNat(user_Id);
     let result = Trie.find(users, key(userId), Nat32.equal);
     let exists = Option.isSome(result);
