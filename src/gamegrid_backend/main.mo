@@ -99,18 +99,30 @@ public shared (msg) func whoami():async Principal{
     if(isAnon){
       return "not authenticated";
     }else{
-    let playerBuff = Buffer.fromArray<Types.User>(players);
-        playerBuff.add(playerProfile);
-        players := Buffer.toArray(playerBuff);
+    let playersBuff = Buffer.fromArray<Types.User>(players);
+        playersBuff.add(playerProfile);
+        players := Buffer.toArray(playersBuff);
       return "User has been registered"
     }
   };
 
   // Get all the  players profile
-  public query func getAllPlayers():async [Types.User]{
+  public query func getPlayers():async [Types.User]{
     players;
   };
 
+  // Get a player's profile
+
+
+ public shared (msg) func getPlayer():async [Types.User]{
+  let principalText = Principal.toText(msg.caller);
+    let principal_ = Principal.fromText(principalText);
+    let playersBuff = Buffer.fromArray<Types.User>(players);
+    
+    let playersSet = await getPlayers();
+ 
+
+  };
 
 
 
