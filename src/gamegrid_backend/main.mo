@@ -130,7 +130,7 @@ public shared (msg) func whoami():async Principal{
 
 
   /**
-   * Application State using Trie [Experimental]
+   * Application State using Trie [Experimental but in use]
    */
 
  
