@@ -3,7 +3,7 @@ import {RiHome6Fill} from "react-icons/ri";
 import {GiPlagueDoctorProfile} from "react-icons/gi";
 import {MdOutlineGames, MdOutlineLeaderboard} from "react-icons/md";
 import { FaScroll } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "../ic/use-auth-client";
 import { Link } from "react-router-dom";
 import { useNavSwitch } from "../nav-context";
